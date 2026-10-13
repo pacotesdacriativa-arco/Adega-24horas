@@ -1,0 +1,1049 @@
+
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adega 24H | Cardápio Digital</title>
+
+<style>
+
+:root {
+
+  --verde: #123d2b;
+
+  --verde-claro: #1d6545;
+
+  --amarelo: #ffd447;
+
+  --fundo: #f5f7f3;
+
+  --texto: #202820;
+
+  --branco: #ffffff;
+
+}
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: var(--fundo);
+
+  color: var(--texto);
+
+}
+
+header {
+
+  background: var(--verde);
+
+  color: white;
+
+  padding: 23px 16px 20px;
+
+}
+
+.topo {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+}
+
+.marca {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+}
+
+.logo {
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: var(--amarelo);
+
+  color: var(--verde);
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 28px;
+
+}
+
+h1 {
+
+  font-size: 25px;
+
+  margin: 0 0 5px;
+
+}
+
+.subtitulo {
+
+  color: #d7e6db;
+
+  font-size: 13px;
+
+}
+
+.chamada {
+
+  margin-top: 22px;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+}
+
+.chamada strong {
+
+  color: var(--amarelo);
+
+  font-size: 19px;
+
+}
+
+.aviso {
+
+  font-size: 11px;
+
+  color: #d7e6db;
+
+  margin-top: 12px;
+
+}
+
+main {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 18px 14px 120px;
+
+}
+
+.busca {
+
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #dce3dc;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  background: white;
+
+  margin-bottom: 17px;
+
+  outline-color: var(--verde-claro);
+
+}
+
+.categorias {
+
+  display: flex;
+
+  gap: 9px;
+
+  overflow-x: auto;
+
+  padding: 2px 0 14px;
+
+  scrollbar-width: thin;
+
+}
+
+.categoria {
+
+  flex: 0 0 auto;
+
+  padding: 11px 15px;
+
+  border: 1px solid #dbe3dc;
+
+  border-radius: 24px;
+
+  background: white;
+
+  color: var(--verde);
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+}
+
+.categoria.ativa {
+
+  background: var(--verde);
+
+  color: white;
+
+  border-color: var(--verde);
+
+}
+
+.titulo-secao {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin: 12px 0 15px;
+
+}
+
+.titulo-secao h2 {
+
+  font-size: 21px;
+
+  margin: 0;
+
+}
+
+.contagem {
+
+  color: #657367;
+
+  font-size: 12px;
+
+}
+
+.produtos {
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 12px;
+
+}
+
+.produto {
+
+  display: flex;
+
+  gap: 13px;
+
+  padding: 12px;
+
+  background: white;
+
+  border: 1px solid #e8ece6;
+
+  border-radius: 15px;
+
+  box-shadow: 0 2px 7px #183d2b0a;
+
+}
+
+.foto-area {
+
+  flex: 0 0 108px;
+
+  width: 108px;
+
+  height: 115px;
+
+  background: #edf2eb;
+
+  border-radius: 11px;
+
+  overflow: hidden;
+
+  display: grid;
+
+  place-items: center;
+
+}
+
+.foto-area img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  display: none;
+
+}
+
+.foto-area .emoji {
+
+  font-size: 39px;
+
+}
+
+.info-produto {
+
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+}
+
+.info-produto h3 {
+
+  font-size: 15px;
+
+  margin: 2px 0 6px;
+
+  line-height: 1.3;
+
+}
+
+.descricao {
+
+  font-size: 12px;
+
+  color: #687269;
+
+  line-height: 1.4;
+
+  margin: 0 0 10px;
+
+}
+
+.rodape-produto {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  width: 100%;
+
+  margin-top: auto;
+
+}
+
+.preco {
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  color: var(--verde);
+
+}
+
+.adicionar {
+
+  background: var(--amarelo);
+
+  color: #25321e;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  padding: 10px 13px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+}
+
+.adicionar:active,
+
+.categoria:active {
+
+  transform: scale(.97);
+
+}
+
+.vazio {
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 25px;
+
+  color: #647064;
+
+  text-align: center;
+
+  grid-column: 1 / -1;
+
+}
+
+.aviso-precos {
+
+  color: #647064;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  margin-top: 24px;
+
+}
+
+.carrinho-fixo {
+
+  position: fixed;
+
+  bottom: 0;
+
+  left: 0;
+
+  right: 0;
+
+  z-index: 10;
+
+  background: white;
+
+  padding: 12px 15px calc(12px + env(safe-area-inset-bottom));
+
+  box-shadow: 0 -3px 18px #00000012;
+
+  border-top: 1px solid #e5e9e4;
+
+}
+
+.carrinho-conteudo {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+}
+
+.resumo {
+
+  flex: 1;
+
+}
+
+.resumo strong {
+
+  display: block;
+
+  font-size: 15px;
+
+  color: var(--verde);
+
+}
+
+.resumo small {
+
+  color: #687269;
+
+  font-size: 12px;
+
+}
+
+.finalizar {
+
+  background: var(--verde);
+
+  color: white;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  padding: 14px 17px;
+
+  font-weight: bold;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+}
+
+.finalizar:disabled {
+
+  background: #a6b2a9;
+
+  cursor: not-allowed;
+
+}
+
+@media (min-width: 650px) {
+
+  .produtos {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  }
+
+  .foto-area {
+
+    flex-basis: 115px;
+
+    width: 115px;
+
+  }
+
+}
+
+@media (min-width: 950px) {
+
+  .produtos {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="topo">
+
+    <div class="marca">
+
+      <div class="logo">🍻</div>
+
+      <div>
+
+        <h1>ADEGA 24H</h1>
+
+        <div class="subtitulo">Bebidas • Gelo • Conveniência</div>
+
+      </div>
+
+    </div>
+
+    <div class="chamada">
+
+      <strong>Seu brinde começa aqui!</strong><br>
+
+      Escolha seus produtos e monte seu pedido.
+
+    </div>
+
+    <div class="aviso">
+
+      Venda de bebidas alcoólicas proibida para menores de 18 anos.
+
+    </div>
+
+  </div>
+
+</header>
+
+<main>
+
+  <input
+
+    class="busca"
+
+    id="busca"
+
+    type="search"
+
+    placeholder="🔎 Buscar cerveja, whisky, gelo..."
+
+    aria-label="Buscar produtos"
+
+  >
+
+  <nav class="categorias" id="categorias" aria-label="Categorias"></nav>
+
+  <div class="titulo-secao">
+
+    <h2 id="tituloCategoria">Todos os produtos</h2>
+
+    <span class="contagem" id="contagem"></span>
+
+  </div>
+
+  <section class="produtos" id="produtos"></section>
+
+  <p class="aviso-precos">
+
+    Os produtos, preços e descrições deste modelo são ilustrativos.
+
+    Confirme os valores e a disponibilidade com a adega antes de publicar.
+
+  </p>
+
+</main>
+
+<div class="carrinho-fixo">
+
+  <div class="carrinho-conteudo">
+
+    <div class="resumo">
+
+      <strong id="totalCarrinho">R$ 0,00</strong>
+
+      <small id="quantidadeCarrinho">Nenhum produto</small>
+
+    </div>
+
+    <button class="finalizar" id="finalizar" disabled>
+
+      Pedir pelo WhatsApp
+
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+// 1. CADASTRO DOS PRODUTOS
+
+// As fotos serão colocadas na pasta "imagens" do GitHub.
+
+// Os nomes dos arquivos precisam ser iguais aos desta lista.
+
+const produtos = [
+
+  // CERVEJAS
+
+  { id: 1, categoria: "Cervejas", nome: "Brahma Chopp", descricao: "Lata 350 ml", preco: 4.50, foto: "cerveja-brahma.jpg", emoji: "🍺" },
+
+  { id: 2, categoria: "Cervejas", nome: "Skol Pilsen", descricao: "Lata 350 ml", preco: 4.50, foto: "cerveja-skol.jpg", emoji: "🍺" },
+
+  { id: 3, categoria: "Cervejas", nome: "Heineken", descricao: "Long neck 330 ml", preco: 7.50, foto: "cerveja-heineken.jpg", emoji: "🍺" },
+
+  { id: 4, categoria: "Cervejas", nome: "Corona Extra", descricao: "Long neck 330 ml", preco: 8.00, foto: "cerveja-corona.jpg", emoji: "🍺" },
+
+  { id: 5, categoria: "Cervejas", nome: "Amstel", descricao: "Lata 350 ml", preco: 4.50, foto: "cerveja-amstel.jpg", emoji: "🍺" },
+
+  { id: 6, categoria: "Cervejas", nome: "Budweiser", descricao: "Long neck 330 ml", preco: 6.50, foto: "cerveja-budweiser.jpg", emoji: "🍺" },
+
+  // WHISKY
+
+  { id: 7, categoria: "Whisky", nome: "Johnnie Walker Red Label", descricao: "Garrafa 1 litro", preco: 99.90, foto: "whisky-red-label.jpg", emoji: "🥃" },
+
+  { id: 8, categoria: "Whisky", nome: "Johnnie Walker Black Label", descricao: "Garrafa 1 litro", preco: 169.90, foto: "whisky-black-label.jpg", emoji: "🥃" },
+
+  { id: 9, categoria: "Whisky", nome: "Jack Daniel's", descricao: "Garrafa 1 litro", preco: 159.90, foto: "whisky-jack-daniels.jpg", emoji: "🥃" },
+
+  { id: 10, categoria: "Whisky", nome: "Ballantine's Finest", descricao: "Garrafa 1 litro", preco: 89.90, foto: "whisky-ballantines.jpg", emoji: "🥃" },
+
+  // GIN
+
+  { id: 11, categoria: "Gin", nome: "Beefeater London Dry", descricao: "Garrafa 750 ml", preco: 99.90, foto: "gin-beefeater.jpg", emoji: "🍸" },
+
+  { id: 12, categoria: "Gin", nome: "Gordon's", descricao: "Garrafa 750 ml", preco: 69.90, foto: "gin-gordons.jpg", emoji: "🍸" },
+
+  { id: 13, categoria: "Gin", nome: "Tanqueray", descricao: "Garrafa 750 ml", preco: 119.90, foto: "gin-tanqueray.jpg", emoji: "🍸" },
+
+  // VODKA E OUTROS DESTILADOS
+
+  { id: 14, categoria: "Vodka", nome: "Absolut Vodka", descricao: "Garrafa 1 litro", preco: 99.90, foto: "vodka-absolut.jpg", emoji: "🍾" },
+
+  { id: 15, categoria: "Vodka", nome: "Smirnoff", descricao: "Garrafa 998 ml", preco: 49.90, foto: "vodka-smirnoff.jpg", emoji: "🍾" },
+
+  { id: 16, categoria: "Vodka", nome: "Cachaça 51", descricao: "Garrafa 965 ml", preco: 17.90, foto: "cachaca-51.jpg", emoji: "🍾" },
+
+  // ENERGÉTICOS E REFRIGERANTES
+
+  { id: 17, categoria: "Energéticos", nome: "Red Bull", descricao: "Lata 250 ml", preco: 9.00, foto: "energetico-red-bull.jpg", emoji: "🥤" },
+
+  { id: 18, categoria: "Energéticos", nome: "Monster Energy", descricao: "Lata 473 ml", preco: 10.00, foto: "energetico-monster.jpg", emoji: "🥤" },
+
+  { id: 19, categoria: "Energéticos", nome: "Coca-Cola", descricao: "Garrafa 2 litros", preco: 11.00, foto: "refrigerante-coca-cola.jpg", emoji: "🥤" },
+
+  { id: 20, categoria: "Energéticos", nome: "Água mineral", descricao: "Garrafa 1,5 litro", preco: 4.00, foto: "agua-mineral.jpg", emoji: "💧" },
+
+  // GELO E COPOS
+
+  { id: 21, categoria: "Gelo e Copos", nome: "Saco de gelo", descricao: "Pacote 5 kg", preco: 15.00, foto: "gelo-saco.jpg", emoji: "🧊" },
+
+  { id: 22, categoria: "Gelo e Copos", nome: "Gelo em cubos", descricao: "Pacote 2 kg", preco: 9.00, foto: "gelo-cubos.jpg", emoji: "🧊" },
+
+  { id: 23, categoria: "Gelo e Copos", nome: "Copos descartáveis", descricao: "Pacote com 50 unidades", preco: 8.00, foto: "copos-descartaveis.jpg", emoji: "🥤" },
+
+  // CARVÃO E ACESSÓRIOS
+
+  { id: 24, categoria: "Acessórios", nome: "Carvão", descricao: "Pacote para churrasco", preco: 18.00, foto: "carvao.jpg", emoji: "🔥" },
+
+  { id: 25, categoria: "Acessórios", nome: "Papel-alumínio", descricao: "Rolo", preco: 7.00, foto: "papel-aluminio.jpg", emoji: "📦" },
+
+  { id: 26, categoria: "Acessórios", nome: "Essência para narguilé", descricao: "Consulte os sabores disponíveis", preco: 15.00, foto: "essencia-narguile.jpg", emoji: "📦" },
+
+  // PETISCOS
+
+  { id: 27, categoria: "Petiscos", nome: "Batata chips", descricao: "Pacote", preco: 8.00, foto: "batata-chips.jpg", emoji: "🍟" },
+
+  { id: 28, categoria: "Petiscos", nome: "Amendoim", descricao: "Pacote", preco: 5.00, foto: "amendoim.jpg", emoji: "🥜" }
+
+];
+
+// 2. CONFIGURAÇÕES DA ADEGA
+
+// Depois, substitua pelo WhatsApp real, com código do país e DDD.
+
+// Exemplo de formato: 5511999999999 (somente números).
+
+const WHATSAPP_ADEGA = "5511999999999";
+
+const NOME_ADEGA = "ADEGA 24H";
+
+// 3. FUNCIONAMENTO DO CARDÁPIO
+
+const categorias = [
+
+  "Todos",
+
+  ...new Set(produtos.map(p => p.categoria))
+
+];
+
+let categoriaAtiva = "Todos";
+
+let carrinho = {};
+
+const formatarPreco = valor =>
+
+  valor.toLocaleString("pt-BR", {
+
+    style: "currency",
+
+    currency: "BRL"
+
+  });
+
+function mostrarCategorias() {
+
+  const area = document.getElementById("categorias");
+
+  area.innerHTML = "";
+
+  categorias.forEach(categoria => {
+
+    const botao = document.createElement("button");
+
+    botao.className =
+
+      "categoria" + (categoria === categoriaAtiva ? " ativa" : "");
+
+    botao.textContent = categoria;
+
+    botao.onclick = () => {
+
+      categoriaAtiva = categoria;
+
+      mostrarCategorias();
+
+      mostrarProdutos();
+
+    };
+
+    area.appendChild(botao);
+
+  });
+
+}
+
+function mostrarProdutos() {
+
+  const busca = document.getElementById("busca")
+
+    .value.trim().toLocaleLowerCase("pt-BR");
+
+  const filtrados = produtos.filter(p => {
+
+    const pertenceCategoria =
+
+      categoriaAtiva === "Todos" || p.categoria === categoriaAtiva;
+
+    const correspondeBusca =
+
+      (p.nome + " " + p.descricao + " " + p.categoria)
+
+        .toLocaleLowerCase("pt-BR").includes(busca);
+
+    return pertenceCategoria && correspondeBusca;
+
+  });
+
+  document.getElementById("tituloCategoria").textContent =
+
+    categoriaAtiva === "Todos" ? "Todos os produtos" : categoriaAtiva;
+
+  document.getElementById("contagem").textContent =
+
+    filtrados.length + (filtrados.length === 1 ? " produto" : " produtos");
+
+  const area = document.getElementById("produtos");
+
+  area.innerHTML = "";
+
+  if (filtrados.length === 0) {
+
+    area.innerHTML =
+
+      '<div class="vazio">Nenhum produto encontrado.</div>';
+
+    return;
+
+  }
+
+  filtrados.forEach(p => {
+
+    const card = document.createElement("article");
+
+    card.className = "produto";
+
+    const fotoArea = document.createElement("div");
+
+    fotoArea.className = "foto-area";
+
+    const emoji = document.createElement("span");
+
+    emoji.className = "emoji";
+
+    emoji.textContent = p.emoji;
+
+    const img = document.createElement("img");
+
+    img.src = "imagens/" + p.foto;
+
+    img.alt = p.nome;
+
+    img.loading = "lazy";
+
+    img.onload = () => {
+
+      img.style.display = "block";
+
+      emoji.style.display = "none";
+
+    };
+
+    img.onerror = () => {
+
+      img.style.display = "none";
+
+      emoji.style.display = "block";
+
+    };
+
+    fotoArea.append(emoji, img);
+
+    const info = document.createElement("div");
+
+    info.className = "info-produto";
+
+    const nome = document.createElement("h3");
+
+    nome.textContent = p.nome;
+
+    const descricao = document.createElement("p");
+
+    descricao.className = "descricao";
+
+    descricao.textContent = p.descricao;
+
+    const rodape = document.createElement("div");
+
+    rodape.className = "rodape-produto";
+
+    const preco = document.createElement("span");
+
+    preco.className = "preco";
+
+    preco.textContent = formatarPreco(p.preco);
+
+    const adicionar = document.createElement("button");
+
+    adicionar.className = "adicionar";
+
+    adicionar.textContent = carrinho[p.id]
+
+      ? "+ Adicionar (" + carrinho[p.id] + ")"
+
+      : "+ Adicionar";
+
+    adicionar.onclick = () => {
+
+      carrinho[p.id] = (carrinho[p.id] || 0) + 1;
+
+      atualizarCarrinho();
+
+      mostrarProdutos();
+
+    };
+
+    rodape.append(preco, adicionar);
+
+    info.append(nome, descricao, rodape);
+
+    card.append(fotoArea, info);
+
+    area.appendChild(card);
+
+  });
+
+}
+
+function atualizarCarrinho() {
+
+  let quantidade = 0;
+
+  let total = 0;
+
+  produtos.forEach(p => {
+
+    const qtd = carrinho[p.id] || 0;
+
+    quantidade += qtd;
+
+    total += qtd * p.preco;
+
+  });
+
+  document.getElementById("totalCarrinho").textContent =
+
+    formatarPreco(total);
+
+  document.getElementById("quantidadeCarrinho").textContent =
+
+    quantidade === 0
+
+      ? "Nenhum produto"
+
+      : quantidade + (quantidade === 1 ? " item no carrinho" : " itens no carrinho");
+
+  document.getElementById("finalizar").disabled = quantidade === 0;
+
+}
+
+document.getElementById("busca").addEventListener("input", mostrarProdutos);
+
+document.getElementById("finalizar").onclick = () => {
+
+  const linhas = [];
+
+  linhas.push("Olá! Quero fazer um pedido na " + NOME_ADEGA + ":");
+
+  linhas.push("");
+
+  produtos.forEach(p => {
+
+    const qtd = carrinho[p.id] || 0;
+
+    if (qtd > 0) {
+
+      linhas.push(
+
+        qtd + "x " + p.nome + " - " + formatarPreco(qtd * p.preco)
+
+      );
+
+    }
+
+  });
+
+  const total = produtos.reduce(
+
+    (soma, p) => soma + (carrinho[p.id] || 0) * p.preco,
+
+    0
+
+  );
+
+  linhas.push("");
+
+  linhas.push("Total estimado: " + formatarPreco(total));
+
+  linhas.push("");
+
+  linhas.push("Por favor, confirme a disponibilidade e o valor final.");
+
+  const mensagem = encodeURIComponent(linhas.join("\n"));
+
+  const telefone = WHATSAPP_ADEGA.replace(/\D/g, "");
+
+  if (!/^\d{12,13}$/.test(telefone) || telefone === "5511999999999") {
+
+    alert("Antes de receber pedidos, coloque o WhatsApp real da adega no código.");
+
+    return;
+
+  }
+
+  window.open(
+
+    "https://wa.me/" + telefone + "?text=" + mensagem,
+
+    "_blank"
+
+  );
+
+};
+
+mostrarCategorias();
+
+mostrarProdutos();
+
+atualizarCarrinho();
+
+</script>
+
+</body>
+
+</html>
